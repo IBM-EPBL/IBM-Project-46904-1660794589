@@ -6,7 +6,16 @@ load_dotenv()
 import os
 
 import ibm_db
-conn = ibm_db.connect("DATABASE={os.getenv(DATABASE_NAME)};HOSTNAME={os.getenv(HOST_NAME)};PORT={os.getenv(PORT_NUMBER)};SECURITY=SSL;SSLServerCertificate=DigiCertGlobalRootCA.crt;UID={os.getenv(USER_ID)};PWD={os.getenv(PASSWORD)}",'','')
+
+
+DATABASE_NAME = os.getenv("DATABASE_NAME")
+HOST_NAME = os.getenv("HOST_NAME")
+PORT_NUMBER = os.getenv("PORT_NUMBER")
+USER_ID = os.getenv("USER_ID")
+PASSWORD = os.getenv("PASSWORD")
+
+
+conn = ibm_db.connect(f"DATABASE={DATABASE_NAME};HOSTNAME={HOST_NAME};PORT={PORT_NUMBER};SECURITY=SSL;SSLServerCertificate=DigiCertGlobalRootCA.crt;UID={USER_ID};PWD={PASSWORD}",'','')
 
 
 app = Flask(__name__)
