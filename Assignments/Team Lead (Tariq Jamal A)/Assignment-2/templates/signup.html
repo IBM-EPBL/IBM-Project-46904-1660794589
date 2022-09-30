@@ -37,23 +37,21 @@
 <body class="text-center">
 
   <main class="form-signin">
-    <form>
+    <form action = "{{ url_for('adduser') }}" method = "POST">
       <img class="mb-4" src="https://assets.entrepreneur.com/content/3x2/2000/1593079102-work-731198.jpg" alt="" width="72" height="57">
       <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
       <div class="form-floating">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Email address</label>
+        <input type = "text" name="name" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">Name</label>
       </div>
       <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-        <label for="floatingPassword">Password</label>
+        <input type="email"  name="email" class="form-control" id="floatingPassword" placeholder="Password">
+        <label for="floatingPassword">Email</label>
       </div>
-
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
+      <div class="form-floating">
+        <input type = "text" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <label for="floatingPassword">Password</label>
       </div>
       <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
     </form>
