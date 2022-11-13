@@ -1,0 +1,30 @@
+{% extends 'hr_layout/app.html' %}
+
+<!-- Page content  -->
+{% block body %}
+    <div class="container-fluid my-4 shadow-sm rounded-3 px-5 py-3 border border-1 border-light">
+        <h3 class="text-primary">Jobs</h3>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Company</th>
+                    <th scope="col">View</th>
+                    <th scope="col">Update</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Python Developer</td>
+                    <td>Technology limited</td>
+                    <td><button class="btn btn-primary">View</button></td>
+                    <td><button class="btn btn-info">Update</button></td>
+                    <td><button class="btn btn-danger">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock body %}

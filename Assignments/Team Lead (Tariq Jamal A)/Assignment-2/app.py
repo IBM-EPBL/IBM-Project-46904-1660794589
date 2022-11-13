@@ -1,6 +1,5 @@
-from turtle import st
+
 from flask import Flask, render_template, request, redirect, url_for, session
-from markupsafe import escape
 from dotenv import load_dotenv
 load_dotenv()
 import os
