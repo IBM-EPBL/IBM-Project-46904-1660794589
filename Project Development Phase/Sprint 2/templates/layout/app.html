@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+    <title>{% block title %} {% endblock title %}</title>
+
+    <style>
+        .main {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(83, 83, 83, 0.3)), url('https://images.pexels.com/photos/838413/pexels-photo-838413.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-size: cover;
+            background-position: center;
+            min-height: 90vh;
+            width: 100%;
+        }
+
+        .apply {
+            background: url('static/images/background.png')no-repeat;
+            background-size: cover;
+            height: 110vh;
+            width: 100%;
+        }
+
+        .apply .card {
+            background-color: rgba(4, 26, 100, 0.801);
+            color: white;
+        }
+
+        .cir1 img {
+            border-radius: 50%;
+        }
+    </style>
+
+</head>
+
+<body onload="myFunction()">
+    {% include 'layout/header.html' %}
+
+    <!-- Page content  -->
+    {% block body %}
+
+    {% endblock body %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+        <script>
+            window.watsonAssistantChatOptions = {
+              integrationID: "14c61a15-4802-4e67-b6b6-beeff792ff88", // The ID of this integration.
+              region: "jp-tok", // The region your integration is hosted in.
+              serviceInstanceID: "a9372ca4-6fba-4a6b-b71c-8a9db5d9f79c", // The ID of your service instance.
+              onLoad: function(instance) { instance.render(); }
+            };
+            setTimeout(function(){
+              const t=document.createElement('script');
+              t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+              document.head.appendChild(t);
+            });
+          </script>
+</body>
+
+</html>
