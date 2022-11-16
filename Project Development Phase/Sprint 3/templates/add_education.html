@@ -1,0 +1,35 @@
+{% extends 'layout/app.html' %}
+
+{% block title %} Add Education {% endblock title %}
+
+<!-- Page content  -->
+{% block body %}
+<div class="container my-4 shadow rounded-3 px-5 py-3 border border-1 border-light">
+    <h2 class="text-white text-center bg-primary py-2 rounded">Add Education</h2>
+    <form action="/add_education" method="post">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mb-3">
+                    <label for="college_name" class="form-label">College name</label>
+                    <input type="text" name="college_name" class="form-control" id="college_name" placeholder="Enter college name">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="degree" class="form-label">Degree</label>
+                    <input type="text" name="degree" class="form-control" id="degree" placeholder="Enter degree">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="grade" class="form-label">Grade</label>
+                    <input type="text" name="grade" class="form-control" id="grade" placeholder="Enter grade">
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Education</button>
+    </form>
+</div>
+{% endblock body %}

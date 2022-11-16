@@ -1,0 +1,98 @@
+{% extends 'layout/app.html' %}
+
+{% block title %} Home Page {% endblock title %}
+<!-- Page content  -->
+{% block body %}
+<section class="main py-5 ">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-7 mb-5">
+                <h1 class="text-primary fs-1 fs-bolder">Find The Most Exciting Startup Jobs</h1>
+            </div>
+            <div class="col-lg-7 mt-3">
+                <form action="{{url_for('jobs')}}" method="post">
+                    <div class="row">
+                            <div class="col-md-8">
+                                <input type="text" class="form-control py-2" name="search_query" id="" placeholder="find jobs...">
+                            </div>
+                            <div class="col-md-4">
+                                <button class="btn btn-primary py-2" type="submit">Find Job</button>
+                            </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+</section>
+<section class="job py-5">
+    <div class="container py-5">
+        <div class="row py-5">
+            <div class="col-lg-7">
+                <h4 class=" pt-5">What We Are Doing</h4>
+                <h1 class="text-primary">24K Talented Peoples Are Getting Jobs</h1>
+                <p class="my-3 text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+                    totam, accusamus laboriosam quidem quo nulla optio illum magni deleniti facilis iste! Cupiditate
+                    voluptatibus impedit doloribus sunt consequuntur. Nam error dolorum possimus veritatis debitis velit
+                    voluptas commodi quidem, quisquam rem enim inventore sit vero nobis facilis nihil aut eius
+                    consectetur illo.</p>
+                <button class="btn btn-primary me-5">Post A Job</button>
+            </div>
+            <div class="col lg-5">
+                <img src="static/images/mens.jpg" class="img-fluid" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="apply py-5">
+    <div class="container text-white text-center py-5">
+        <p class="red">Apply Process</p>
+        <h1>How It Works</h1>
+        <div class="row py-5">
+            <div class="col-lg-4">
+                <div class="card p-3">
+                    <div class="card-body text-center">
+                        <div class="cir1 pt-3 mb-3">
+                            <img src="static/images/cate4.jpg" class="img-fluid" alt="">
+                        </div>
+                        <h2>1.Search a Job</h2>
+                        <p class="py-3">Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor
+                            incididuntutlaborea.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card p-3">
+                    <div class="card-body text-center">
+                        <div class="cir1 pt-3 mb-3">
+                            <img src="static/images/cate3.JPG" class="img-fluid" alt="">
+                        </div>
+                        <h2>1.Apply for a Job</h2>
+                        <p class="py-3">Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor
+                            incididuntutlaborea.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card p-3">
+                    <div class="card-body text-center">
+                        <div class="cir1 pt-3 mb-3">
+                            <img src="static/images/cate5.JPG" class="img-fluid" alt="">
+                        </div>
+                        <h2>1.Get hired by MNC's</h2>
+                        <p class="py-3">Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor
+                            incididunutlaborea.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="w-100 p-3 bg-dark">
+    <p class="text-center m-0 text-white">@2022 Job Portal All rights reserved.</p>
+</footer>
+
+{% endblock body %}
