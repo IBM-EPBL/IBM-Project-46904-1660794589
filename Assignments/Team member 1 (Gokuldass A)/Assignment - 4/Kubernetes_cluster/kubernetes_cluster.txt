@@ -1,2 +1,0 @@
-Create a Kubernetes cluster in IBM cloud and deploy hello-world-image or job-portal-image and also
-expose the same app to run in node-port.

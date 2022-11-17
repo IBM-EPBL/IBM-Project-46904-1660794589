@@ -1,2 +1,0 @@
-IBM Container Registry was created
-Helloworld app was deployed
