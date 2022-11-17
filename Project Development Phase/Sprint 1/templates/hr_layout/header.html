@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-primary shadow-sm">
+    <div class="container-fluid">
+        <a class="navbar-brand text-white fw-bold fs-3" href="#">Job Portal</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active text-white fs-5" aria-current="page" href="{{ url_for('hr_dashboard') }}">Company</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-white fs-5" aria-current="page" href="{{ url_for('hr_jobs_added') }}">Jobs</a>
+                </li>
+            </ul>
+            <img src="static/images/profile.jpg" alt="" class="rounded-circle shadow" style="width: 30px;height: 30px;">
+        </div>
+    </div>
+</nav>

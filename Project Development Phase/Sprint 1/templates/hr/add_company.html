@@ -1,0 +1,26 @@
+{% extends 'hr_layout/app.html' %}
+
+<!-- Page content  -->
+{% block body %}
+    <div class="container my-4 shadow rounded-3 px-5 py-3 border border-1 border-light">
+        <h2 class="text-white text-center bg-primary py-2 rounded">Add Company details</h2>
+        <form action="" method="post">
+            <div>
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" name="title" id="title" placeholder="Enter title">
+            </div>
+            <div class="row my-4">
+                <div class="col-md-6">
+                    <label for="state" class="form-label">State</label>
+                    <input type="text" class="form-control" name="state" id="state" placeholder="Enter state">
+                </div>
+                <div class="col-md-6">
+                    <label for="city" class="form-label">City</label>
+                    <input type="text" class="form-control" name="city" id="city" placeholder="Enter city">
+                </div>
+            </div>
+            <label for="description" class="form-label">Description</label>
+            <textarea cols="80" id="description" name="description" rows="10"></textarea>
+        </form>
+    </div>
+{% endblock body %}
