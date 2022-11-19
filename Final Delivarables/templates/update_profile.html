@@ -1,0 +1,68 @@
+{% extends 'layout/app.html' %}
+
+{% block title %} Profile Page {% endblock title %}
+<!-- Page content  -->
+{% block body %}
+<div class="container my-3 p-5 shadow-sm">
+    <div class="d-flex justify-content-between">
+        {% if error %}
+            <div class="alert alert-primary" role="alert">
+                {{ error }}
+            </div>
+        {% endif %}
+        <h2 class="w-100 bg-primary text-center py-2 rounded text-white">User Data</h2>
+    </div>
+    <form action="/update_profile" method="post">
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" name="name" value="{{ user['NAME'] }}" readonly>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div>
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" name="username" value="{{ user['USERNAME'] }}"
+                        readonly>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <label for="email" class="form-label">email</label>
+                    <input type="text" class="form-control" name="email" value="{{ user['EMAIL'] }}" readonly>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div>
+                    <label for="phone_number" class="form-label">Phone number</label>
+                    <input type="text" class="form-control" name="phno" value="{{ user['PHNO'] }}">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <label for="interest" class="form-label">Interest</label>
+                    <input type="text" class="form-control" name="interest" value="{{user['INTEREST']}}" >
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div>
+                    <label for="state" class="form-label">State</label>
+                    <input type="text" class="form-control" name="state" value="{{user['STATE']}}">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div>
+                    <label for="city" class="form-label">City</label>
+                    <input type="text" class="form-control" name="city" value="{{user['CITY']}}">
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary my-3">Update</button>
+    </form>
+</div>
+{% endblock body %}

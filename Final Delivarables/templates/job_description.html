@@ -1,0 +1,43 @@
+{% extends 'layout/app.html' %}
+
+<!-- Page content  -->
+{% block body %}
+    
+    <div class="container py-3">
+        <div class="row">
+            <div class="col">
+                <a class="btn btn-primary" href="{{ url_for('jobs') }}">Back</a>
+            </div>
+        </div>
+        <div class="row my-3 p-3 shadow-sm rounded">
+            <div class="col-md-12">
+                <h2 class="fw-bold">{{ job["TITLE"] }}</h2>
+                <h5 class="text-secondary">{{ job["COMPANY_NAME"] }}</h5>
+                <p class="text-secondary">{{ job["LOCATION"] }}</p>
+                <div class="d-flex" >
+                    <a class="btn btn-primary me-2" href="/apply_job/{{ job['ID'] }}">Apply job</a>
+                    <a class="btn btn-outline-primary">Save job</a>
+                </div>
+                <hr>
+                <h4 class="fw-bold">Job details</h4>
+                <h5>Job type</h5>
+                <P class="text-secondary">{{ job["JOB_TYPE"] }}</P>
+                <h5>Experience</h5>
+                <P class="text-secondary">{{ job["EXPERIENCE"] }}</P>
+                <h5>Salary</h5>
+                <P class="text-secondary">{{ job["SALARY"] }}</P>
+                <h5>Vacancy</h5>
+                <P class="text-secondary">{{ job["VACANCY"] }}</P>
+                <h5>Description</h5>
+                <p class="text-secondary">{{ job["DESCRIPTION"] }}</p>
+                <h5>Education</h5>
+                <p class="text-secondary">{{ job["EDUCATION"] }}</p>
+                <h5>Responsibility</h5>
+                <p class="text-secondary">{{ job["RESPONSIBILITY"] }}</p>
+                <h5>Application Deadline {{ job["DEADLINE"] }}</h5>
+                <p class="text-secondary">Posted on {{ job["POSTED_ON"] }}</p>
+            </div>
+            
+        </div>
+    </div>
+{% endblock body %}
