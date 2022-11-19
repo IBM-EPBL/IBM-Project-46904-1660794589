@@ -1,0 +1,102 @@
+{% extends 'layout/app.html' %}
+
+{% block title %} Profile Page {% endblock title %}
+<!-- Page content  -->
+{% block body %}
+<div class="container my-3 p-5 shadow-sm">
+    <div class="d-flex justify-content-between">
+        {% if error %}
+            <div class="alert alert-primary" role="alert">
+                {{ error }}
+            </div>
+        {% endif %}
+        <h2>User Data</h2>
+        <div>
+            <button type="button" class="btn btn-primary btn-sm me-2" data-bs-toggle="modal" data-bs-target="#resetpassword">Reset
+                Password</button>
+            <!-- Modal -->
+            <div class="modal fade" id="resetpassword" tabindex="-1" aria-labelledby="resetpasswordLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="resetpasswordLabel">Reset Password</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <form action="/profile" method="post">
+                            <div class="modal-body">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" name="password" \>
+                                <label for="confirm_password" class="form-label">Confirm Password</label>
+                                <input type="password" class="form-control" name="confirm_password" \>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <input type="submit" class="btn btn-sm btn-primary" name="forgot_password" value="Save changes">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <a class="btn btn-outline-primary btn-sm" href="{{ url_for('update_profile') }}">Update Profile</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div>
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" name="name" value="{{ user['user']['NAME'] }}" readonly>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div>
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" name="username" value="{{ user['user']['USERNAME'] }}"
+                    readonly>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div>
+                <label for="email" class="form-label">email</label>
+                <input type="text" class="form-control" name="email" value="{{ user['user']['EMAIL'] }}" readonly>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div>
+                <label for="phone_number" class="form-label">Phone number</label>
+                <input type="text" class="form-control" name="phone_number" value="{{ user['user']['PHNO'] }}"
+                    readonly>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div>
+                <label for="interest" class="form-label">Interest</label>
+                <input type="text" class="form-control" name="interest" value="{{user['user']['INTEREST']}}" readonly>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div>
+                <label for="state" class="form-label">State</label>
+                <input type="text" class="form-control" name="state" value="{{user['user']['STATE']}}" readonly>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div>
+                <label for="city" class="form-label">City</label>
+                <input type="text" class="form-control" name="city" value="{{user['user']['CITY']}}" readonly>
+            </div>
+        </div>
+    </div>
+    <h2 class="text-primary my-2">Education Details</h2>
+    {% for education in user['educations'] %}
+        <h4>{{ education['COLLEGE_NAME'] }}</h4>
+        <p class="text-secondary m-0">{{ education['DEGREE'] }}</p>
+        <p class="text-secondary">Grade: {{ education['GRADE'] }}</p>
+    {% endfor %}
+    <a class="btn btn-primary mt-4" href="{{ url_for('add_education') }}">Add Education</a>
+</div>
+{% endblock body %}

@@ -1,0 +1,8 @@
+# environment file
+.env
+
+# certificate 
+DigiCertGlobalRootCA.crt
+
+
+query.txt
