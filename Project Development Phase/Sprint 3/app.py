@@ -38,7 +38,7 @@ app.config['MAIL_USE_SSL'] = True
 mail = Mail(app)
 s = URLSafeTimedSerializer('Thisisasecret!')
 
-app.permanent_session_lifetime = timedelta(days=30)
+app.permanent_session_lifetime = timedelta(hours=24)
 
 @app.route("/")
 def home():
@@ -70,8 +70,6 @@ def login():
         user = ibm_db.fetch_assoc(stmt)
         if user['IS_VERIFIED']:
             if user:
-                print(user)
-                print(user['ID'])
                 user_password = user['PASSWORD']
                 if(sha256_crypt.verify(password, user_password)):
                     session.permanent = True
@@ -97,6 +95,8 @@ def logout():
         session.pop('id',None)
         session.pop('email',None)
         session.pop('is_loggedin',None) 
+        return redirect(url_for('login'))
+    else:
         return redirect(url_for('login'))
 
 @app.route('/register', methods=['POST', "GET"])
@@ -132,7 +132,6 @@ def register():
 @app.route('/confirm_email/<token>/')
 def confirm_email(token):
     data = token.split(',')
-    print(data)
     try:
         email = s.loads(data[0], salt='email-confirm', max_age=3600)
 
@@ -177,7 +176,6 @@ def profile():
             password = request.form.get('password')
             confirm_password = request.form.get('confirm_password')
             if password == confirm_password:
-                print("Ok")
                 user = session['id']
                 encrypt_password = sha256_crypt.encrypt(password)
                 sql = "UPDATE FVS49663.USER set password = '{}' where id = '{}'".format(encrypt_password,user)
@@ -198,11 +196,12 @@ def profile():
 
             educations = []
             dictionary = ibm_db.fetch_both(stmt1)
+            print(dictionary)
             while dictionary != False:
-                educations.append(dictionary)
+                educations.append(dictionary) 
                 dictionary = ibm_db.fetch_both(stmt1)
-
             print(educations)
+                
             return render_template('profile.html',user={"user":user,"educations":educations})
 
     else:
